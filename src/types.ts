@@ -163,18 +163,78 @@ export interface LogResult {
 export interface LogViewerProps {
     /** Base path for the logs API (default: /api/logs) */
     apiBasePath?: string
-    /** Additional CSS classes */
+    /** Additional CSS classes for the container */
     className?: string
+    /** CSS classes for specific parts of the component */
+    classNames?: LogViewerClassNames
     /** Number of logs per page (default: 50) */
     pageSize?: number
     /** Custom theme colors */
     theme?: LogViewerTheme
     /** Callback when a log is selected */
     onLogSelect?: (log: ErrorLogEntry) => void
-    /** Whether to show the delete button */
+    /** Callback when a log is deleted */
+    onDelete?: (id: string) => void
+    /** Whether to show the delete button (default: true) */
     showDelete?: boolean
     /** Whether to auto-refresh (in seconds, 0 to disable) */
     autoRefresh?: number
+    /** Custom date formatter (default: toLocaleString) */
+    formatDate?: (date: Date) => string
+    /** Custom message when no logs are found */
+    emptyMessage?: string
+    /** Show/hide specific columns */
+    columns?: LogViewerColumns
+    /** Title shown above the log viewer */
+    title?: string
+    /** Description shown below the title */
+    description?: string
+    /** Hide the header (title, description, filters) */
+    hideHeader?: boolean
+    /** Hide the filters */
+    hideFilters?: boolean
+}
+
+/**
+ * CSS class names for different parts of the LogViewer
+ */
+export interface LogViewerClassNames {
+    /** Container wrapper */
+    container?: string
+    /** Header section (title, description) */
+    header?: string
+    /** Filters section */
+    filters?: string
+    /** Table element */
+    table?: string
+    /** Table header row */
+    tableHeader?: string
+    /** Table body */
+    tableBody?: string
+    /** Individual table row */
+    tableRow?: string
+    /** Pagination section */
+    pagination?: string
+    /** Log detail modal */
+    modal?: string
+}
+
+/**
+ * Column visibility configuration
+ */
+export interface LogViewerColumns {
+    /** Show level column (default: true) */
+    level?: boolean
+    /** Show message column (default: true) */
+    message?: boolean
+    /** Show user column (default: true) */
+    user?: boolean
+    /** Show path column (default: true) */
+    path?: boolean
+    /** Show timestamp column (default: true) */
+    timestamp?: boolean
+    /** Show actions column (default: true) */
+    actions?: boolean
 }
 
 /**
