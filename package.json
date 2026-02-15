@@ -1,8 +1,8 @@
 {
-  "name": "@vinetech/next-error-logger",
+  "name": "@vinetechke/next-error-logger",
   "version": "0.1.0-beta.1",
   "description": "Simple error logging for Next.js apps with user context, multiple database adapters, and a built-in dashboard.",
-  "author": "VineTech",
+  "author": "VineTechKE",
   "license": "MIT",
   "repository": {
     "type": "git",

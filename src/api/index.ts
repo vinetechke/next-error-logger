@@ -31,7 +31,7 @@ export interface APIHandlerConfig {
  * @example
  * ```ts
  * // app/api/admin/logs/route.ts
- * import { createLogAPIHandlers } from '@vinetech/next-error-logger/api'
+ * import { createLogAPIHandlers } from '@vinetechke/next-error-logger/api'
  * import { auth } from '@/auth'
  *
  * const { GET, DELETE } = createLogAPIHandlers({
@@ -47,7 +47,7 @@ export interface APIHandlerConfig {
  * @example
  * ```ts
  * // app/api/admin/logs/[id]/route.ts
- * import { createLogDetailAPIHandlers } from '@vinetech/next-error-logger/api'
+ * import { createLogDetailAPIHandlers } from '@vinetechke/next-error-logger/api'
  * import { auth } from '@/auth'
  *
  * const { GET, DELETE } = createLogDetailAPIHandlers({
@@ -118,7 +118,7 @@ export function createLogAPIHandlers(config: APIHandlerConfig) {
 
                 return NextResponse.json(result)
             } catch (error) {
-                console.error('[@vinetech/next-error-logger] API error:', error)
+                console.error('[@vinetechke/next-error-logger] API error:', error)
                 return NextResponse.json(
                     { error: 'Failed to fetch logs' },
                     { status: 500 },
@@ -162,7 +162,7 @@ export function createLogAPIHandlers(config: APIHandlerConfig) {
 
                 return NextResponse.json({ deleted: count })
             } catch (error) {
-                console.error('[@vinetech/next-error-logger] API error:', error)
+                console.error('[@vinetechke/next-error-logger] API error:', error)
                 return NextResponse.json(
                     { error: 'Failed to delete logs' },
                     { status: 500 },
@@ -178,7 +178,7 @@ export function createLogAPIHandlers(config: APIHandlerConfig) {
  * @example
  * ```ts
  * // app/api/admin/logs/[id]/route.ts
- * import { createLogDetailAPIHandlers } from '@vinetech/next-error-logger/api'
+ * import { createLogDetailAPIHandlers } from '@vinetechke/next-error-logger/api'
  *
  * const { GET, DELETE } = createLogDetailAPIHandlers({
  *   isAuthorized: async () => {
@@ -232,7 +232,7 @@ export function createLogDetailAPIHandlers(config: APIHandlerConfig) {
 
                 return NextResponse.json(log)
             } catch (error) {
-                console.error('[@vinetech/next-error-logger] API error:', error)
+                console.error('[@vinetechke/next-error-logger] API error:', error)
                 return NextResponse.json(
                     { error: 'Failed to fetch log' },
                     { status: 500 },
@@ -270,7 +270,7 @@ export function createLogDetailAPIHandlers(config: APIHandlerConfig) {
                 await cfg.adapter.delete(id)
                 return NextResponse.json({ success: true })
             } catch (error) {
-                console.error('[@vinetech/next-error-logger] API error:', error)
+                console.error('[@vinetechke/next-error-logger] API error:', error)
                 return NextResponse.json(
                     { error: 'Failed to delete log' },
                     { status: 500 },
@@ -286,7 +286,7 @@ export function createLogDetailAPIHandlers(config: APIHandlerConfig) {
  * @example
  * ```ts
  * // app/api/admin/logs/stats/route.ts
- * import { createLogStatsHandler } from '@vinetech/next-error-logger/api'
+ * import { createLogStatsHandler } from '@vinetechke/next-error-logger/api'
  *
  * export const GET = createLogStatsHandler({
  *   isAuthorized: async () => {
@@ -351,7 +351,7 @@ export function createLogStatsHandler(config: APIHandlerConfig) {
                 last24Hours: recentResult.total,
             })
         } catch (error) {
-            console.error('[@vinetech/next-error-logger] API error:', error)
+            console.error('[@vinetechke/next-error-logger] API error:', error)
             return NextResponse.json(
                 { error: 'Failed to fetch stats' },
                 { status: 500 },

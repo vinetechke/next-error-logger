@@ -56,7 +56,7 @@ interface PrismaClientLike {
  *
  * @example
  * ```ts
- * import { createPrismaAdapter } from '@vinetech/next-error-logger/adapters/prisma'
+ * import { createPrismaAdapter } from '@vinetechke/next-error-logger/adapters/prisma'
  * import { prisma } from '@/lib/prisma'
  *
  * const adapter = createPrismaAdapter(prisma)

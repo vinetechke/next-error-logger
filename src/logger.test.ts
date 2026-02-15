@@ -82,7 +82,7 @@ describe('getConfig', () => {
         const { getConfig } = await import('./logger')
 
         expect(() => getConfig()).toThrow(
-            '[@vinetech/next-error-logger] Logger not initialized',
+            '[@vinetechke/next-error-logger] Logger not initialized',
         )
     })
 })

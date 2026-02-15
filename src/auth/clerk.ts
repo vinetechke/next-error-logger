@@ -52,7 +52,7 @@ export interface ClerkAdapterConfig {
  * @example
  * ```ts
  * // Basic usage (userId only)
- * import { createClerkAdapter } from '@vinetech/next-error-logger/auth/clerk'
+ * import { createClerkAdapter } from '@vinetechke/next-error-logger/auth/clerk'
  * import { auth } from '@clerk/nextjs/server'
  *
  * const authAdapter = createClerkAdapter({ auth })
@@ -61,7 +61,7 @@ export interface ClerkAdapterConfig {
  * @example
  * ```ts
  * // With full user details
- * import { createClerkAdapter } from '@vinetech/next-error-logger/auth/clerk'
+ * import { createClerkAdapter } from '@vinetechke/next-error-logger/auth/clerk'
  * import { auth, clerkClient } from '@clerk/nextjs/server'
  *
  * const authAdapter = createClerkAdapter({

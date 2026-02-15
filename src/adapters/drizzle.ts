@@ -64,7 +64,7 @@ export interface DrizzleAdapterConfig {
  *
  * @example
  * ```ts
- * import { createDrizzleAdapter } from '@vinetech/next-error-logger/adapters/drizzle'
+ * import { createDrizzleAdapter } from '@vinetechke/next-error-logger/adapters/drizzle'
  * import { db } from '@/lib/db'
  * import { errorLogs } from '@/lib/schema'
  * import { eq, and, or, like, lt, gte, lte, desc, asc } from 'drizzle-orm'

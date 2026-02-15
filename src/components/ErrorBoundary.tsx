@@ -30,7 +30,7 @@ interface ErrorBoundaryState {
  * @example
  * ```tsx
  * // Basic usage
- * import { ErrorBoundary } from '@vinetech/next-error-logger/components'
+ * import { ErrorBoundary } from '@vinetechke/next-error-logger/components'
  *
  * export default function Layout({ children }) {
  *   return (
@@ -63,7 +63,7 @@ interface ErrorBoundaryState {
  * @example
  * ```tsx
  * // With error logger integration
- * import { ErrorBoundary } from '@vinetech/next-error-logger/components'
+ * import { ErrorBoundary } from '@vinetechke/next-error-logger/components'
  * import { errorLogger } from '@/lib/error-logger'
  *
  * <ErrorBoundary
@@ -213,7 +213,7 @@ export class ErrorBoundary extends Component<
  *
  * @example
  * ```tsx
- * import { withErrorBoundary } from '@vinetech/next-error-logger/components'
+ * import { withErrorBoundary } from '@vinetechke/next-error-logger/components'
  *
  * function MyComponent() {
  *   // Component that might throw

@@ -14,9 +14,9 @@ let config: ErrorLoggerConfig | null = null
  *
  * @example
  * ```ts
- * import { initErrorLogger } from '@vinetech/next-error-logger'
- * import { createPrismaAdapter } from '@vinetech/next-error-logger/adapters/prisma'
- * import { createNextAuthAdapter } from '@vinetech/next-error-logger/auth/next-auth'
+ * import { initErrorLogger } from '@vinetechke/next-error-logger'
+ * import { createPrismaAdapter } from '@vinetechke/next-error-logger/adapters/prisma'
+ * import { createNextAuthAdapter } from '@vinetechke/next-error-logger/auth/next-auth'
  * import { prisma } from '@/lib/prisma'
  * import { auth } from '@/auth'
  *
@@ -42,7 +42,7 @@ export function initErrorLogger(cfg: ErrorLoggerConfig): void {
 export function getConfig(): ErrorLoggerConfig {
     if (!config) {
         throw new Error(
-            '[@vinetech/next-error-logger] Logger not initialized. Call initErrorLogger() first.',
+            '[@vinetechke/next-error-logger] Logger not initialized. Call initErrorLogger() first.',
         )
     }
     return config
@@ -112,7 +112,7 @@ async function log(
         return { success: true, entry }
     } catch (err) {
         // Don't throw on logging failures - just return error result
-        console.error('[@vinetech/next-error-logger] Failed to log:', err)
+        console.error('[@vinetechke/next-error-logger] Failed to log:', err)
         return {
             success: false,
             error: err instanceof Error ? err.message : 'Unknown error',

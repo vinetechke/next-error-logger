@@ -25,7 +25,7 @@ const defaultTheme: Required<LogViewerTheme> = {
  * @example
  * ```tsx
  * // Basic usage
- * import { LogViewer } from '@vinetech/next-error-logger/components'
+ * import { LogViewer } from '@vinetechke/next-error-logger/components'
  *
  * export default function LogsPage() {
  *   return (

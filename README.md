@@ -1,10 +1,10 @@
-# @vinetech/next-error-logger
+# @vinetechke/next-error-logger
 
 > **Beta Release** - This package is under active development. APIs may change before v1.0.0.
 
 Simple error logging for Next.js apps with user context, multiple database adapters, and a built-in dashboard.
 
-[![npm version](https://badge.fury.io/js/%40vinetech%2Fnext-error-logger.svg)](https://www.npmjs.com/package/@vinetech/next-error-logger)
+[![npm version](https://badge.fury.io/js/%40vinetechke%2Fnext-error-logger.svg)](https://www.npmjs.com/package/@vinetechke/next-error-logger)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Features
@@ -26,15 +26,15 @@ Simple error logging for Next.js apps with user context, multiple database adapt
 ## Installation
 
 ```bash
-npm install @vinetech/next-error-logger
+npm install @vinetechke/next-error-logger
 ```
 
 ```bash
-pnpm add @vinetech/next-error-logger
+pnpm add @vinetechke/next-error-logger
 ```
 
 ```bash
-yarn add @vinetech/next-error-logger
+yarn add @vinetechke/next-error-logger
 ```
 
 ## Quick Start
@@ -109,9 +109,9 @@ See [schemas/schema.sql](./schemas/schema.sql) for PostgreSQL, MySQL, and SQLite
 Create `lib/error-logger.ts`:
 
 ```typescript
-import { initErrorLogger, errorLogger } from '@vinetech/next-error-logger'
-import { createPrismaAdapter } from '@vinetech/next-error-logger/adapters/prisma'
-import { createNextAuthAdapter } from '@vinetech/next-error-logger/auth/next-auth'
+import { initErrorLogger, errorLogger } from '@vinetechke/next-error-logger'
+import { createPrismaAdapter } from '@vinetechke/next-error-logger/adapters/prisma'
+import { createNextAuthAdapter } from '@vinetechke/next-error-logger/auth/next-auth'
 import { prisma } from '@/lib/prisma'
 import { auth } from '@/auth'
 
@@ -151,7 +151,7 @@ export async function POST(request: Request) {
 
 ```typescript
 // app/api/admin/logs/route.ts
-import { createLogAPIHandlers } from '@vinetech/next-error-logger/api'
+import { createLogAPIHandlers } from '@vinetechke/next-error-logger/api'
 import { auth } from '@/auth'
 
 const { GET, DELETE } = createLogAPIHandlers({
@@ -166,7 +166,7 @@ export { GET, DELETE }
 
 ```typescript
 // app/api/admin/logs/[id]/route.ts
-import { createLogDetailAPIHandlers } from '@vinetech/next-error-logger/api'
+import { createLogDetailAPIHandlers } from '@vinetechke/next-error-logger/api'
 import { auth } from '@/auth'
 
 const { GET, DELETE } = createLogDetailAPIHandlers({
@@ -183,7 +183,7 @@ export { GET, DELETE }
 
 ```tsx
 // app/admin/logs/page.tsx
-import { LogViewer } from '@vinetech/next-error-logger/components'
+import { LogViewer } from '@vinetechke/next-error-logger/components'
 
 export default function LogsPage() {
   return (
@@ -205,7 +205,7 @@ export default function LogsPage() {
 ### Prisma
 
 ```typescript
-import { createPrismaAdapter } from '@vinetech/next-error-logger/adapters/prisma'
+import { createPrismaAdapter } from '@vinetechke/next-error-logger/adapters/prisma'
 import { prisma } from '@/lib/prisma'
 
 const adapter = createPrismaAdapter(prisma)
@@ -214,7 +214,7 @@ const adapter = createPrismaAdapter(prisma)
 ### Drizzle
 
 ```typescript
-import { createDrizzleAdapter } from '@vinetech/next-error-logger/adapters/drizzle'
+import { createDrizzleAdapter } from '@vinetechke/next-error-logger/adapters/drizzle'
 import { db } from '@/lib/db'
 import { errorLogs } from '@/lib/schema'
 import { eq, and, or, like, lt, gte, lte, desc, asc } from 'drizzle-orm'
@@ -231,7 +231,7 @@ const adapter = createDrizzleAdapter({
 Works with any SQL database:
 
 ```typescript
-import { createSQLAdapter } from '@vinetech/next-error-logger/adapters/sql'
+import { createSQLAdapter } from '@vinetechke/next-error-logger/adapters/sql'
 import { Pool } from 'pg'
 
 const pool = new Pool({ connectionString: process.env.DATABASE_URL })
@@ -256,7 +256,7 @@ const adapter = createSQLAdapter({
 ### NextAuth (Auth.js v5)
 
 ```typescript
-import { createNextAuthAdapter } from '@vinetech/next-error-logger/auth/next-auth'
+import { createNextAuthAdapter } from '@vinetechke/next-error-logger/auth/next-auth'
 import { auth } from '@/auth'
 
 const authAdapter = createNextAuthAdapter(auth)
@@ -265,7 +265,7 @@ const authAdapter = createNextAuthAdapter(auth)
 ### NextAuth v4
 
 ```typescript
-import { createNextAuthAdapter } from '@vinetech/next-error-logger/auth/next-auth'
+import { createNextAuthAdapter } from '@vinetechke/next-error-logger/auth/next-auth'
 import { getServerSession } from 'next-auth'
 import { authOptions } from '@/app/api/auth/[...nextauth]/route'
 
@@ -277,7 +277,7 @@ const authAdapter = createNextAuthAdapter(async () => {
 ### Clerk
 
 ```typescript
-import { createClerkAdapter } from '@vinetech/next-error-logger/auth/clerk'
+import { createClerkAdapter } from '@vinetechke/next-error-logger/auth/clerk'
 import { auth, clerkClient } from '@clerk/nextjs/server'
 
 const authAdapter = createClerkAdapter({
@@ -291,7 +291,7 @@ const authAdapter = createClerkAdapter({
 ### Custom Auth
 
 ```typescript
-import type { AuthAdapter } from '@vinetech/next-error-logger'
+import type { AuthAdapter } from '@vinetechke/next-error-logger'
 
 const customAuthAdapter: AuthAdapter = {
   async getUser() {
@@ -348,7 +348,7 @@ await errorLogger.withUser({ id: 'user-123', email: 'user@example.com' })
 ### ErrorBoundary Component
 
 ```tsx
-import { ErrorBoundary } from '@vinetech/next-error-logger/components'
+import { ErrorBoundary } from '@vinetechke/next-error-logger/components'
 import { errorLogger } from '@/lib/error-logger'
 
 <ErrorBoundary
@@ -401,7 +401,7 @@ import type {
   ErrorLoggerConfig,
   QueryOptions,
   LogViewerProps,
-} from '@vinetech/next-error-logger'
+} from '@vinetechke/next-error-logger'
 ```
 
 ## Development

@@ -24,7 +24,7 @@ type NextAuthFn = () => Promise<NextAuthSession | null>
  * @example
  * ```ts
  * // With NextAuth v5 (Auth.js)
- * import { createNextAuthAdapter } from '@vinetech/next-error-logger/auth/next-auth'
+ * import { createNextAuthAdapter } from '@vinetechke/next-error-logger/auth/next-auth'
  * import { auth } from '@/auth'  // Your NextAuth config
  *
  * const authAdapter = createNextAuthAdapter(auth)
@@ -39,7 +39,7 @@ type NextAuthFn = () => Promise<NextAuthSession | null>
  * @example
  * ```ts
  * // With NextAuth v4
- * import { createNextAuthAdapter } from '@vinetech/next-error-logger/auth/next-auth'
+ * import { createNextAuthAdapter } from '@vinetechke/next-error-logger/auth/next-auth'
  * import { getServerSession } from 'next-auth'
  * import { authOptions } from '@/app/api/auth/[...nextauth]/route'
  *

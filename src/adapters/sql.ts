@@ -66,7 +66,7 @@ export interface SQLAdapterConfig {
  * @example
  * ```ts
  * // With node-postgres (pg)
- * import { createSQLAdapter } from '@vinetech/next-error-logger/adapters/sql'
+ * import { createSQLAdapter } from '@vinetechke/next-error-logger/adapters/sql'
  * import { Pool } from 'pg'
  *
  * const pool = new Pool({ connectionString: process.env.DATABASE_URL })
@@ -89,7 +89,7 @@ export interface SQLAdapterConfig {
  * @example
  * ```ts
  * // With mysql2
- * import { createSQLAdapter } from '@vinetech/next-error-logger/adapters/sql'
+ * import { createSQLAdapter } from '@vinetechke/next-error-logger/adapters/sql'
  * import mysql from 'mysql2/promise'
  *
  * const pool = mysql.createPool({ uri: process.env.DATABASE_URL })

@@ -1,4 +1,4 @@
-// @vinetech/next-error-logger - Prisma Schema
+// @vinetechke/next-error-logger - Prisma Schema
 // Copy this model to your schema.prisma file
 
 model ErrorLog {

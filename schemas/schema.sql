@@ -1,4 +1,4 @@
--- @vinetech/next-error-logger - SQL Schema
+-- @vinetechke/next-error-logger - SQL Schema
 -- Choose the appropriate schema for your database
 
 -- ============================================
