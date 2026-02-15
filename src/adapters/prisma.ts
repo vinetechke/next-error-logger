@@ -1,30 +1,23 @@
-import type {
-    DatabaseAdapter,
-    ErrorLogEntry,
-    QueryOptions,
-    LogLevel,
-} from '../types'
+import type { DatabaseAdapter, ErrorLogEntry, QueryOptions } from '../types'
 
 /**
- * Prisma client interface - matches @prisma/client structure
- * We use a generic interface to avoid requiring @prisma/client as a dependency
+ * Prisma ErrorLog model delegate interface
+ * Uses generic function types to be compatible with any Prisma client version
+ */
+interface ErrorLogDelegate {
+    create(args: unknown): Promise<unknown>
+    findMany(args: unknown): Promise<unknown[]>
+    findUnique(args: unknown): Promise<unknown | null>
+    delete(args: unknown): Promise<unknown>
+    deleteMany(args: unknown): Promise<{ count: number }>
+    count(args: unknown): Promise<number>
+}
+
+/**
+ * Prisma client interface - compatible with any @prisma/client version
  */
 interface PrismaClientLike {
-    errorLog: {
-        create: (args: { data: Record<string, unknown> }) => Promise<unknown>
-        findMany: (args: {
-            where?: Record<string, unknown>
-            orderBy?: Record<string, unknown>
-            skip?: number
-            take?: number
-        }) => Promise<unknown[]>
-        findUnique: (args: { where: { id: string } }) => Promise<unknown | null>
-        delete: (args: { where: { id: string } }) => Promise<unknown>
-        deleteMany: (args: {
-            where?: Record<string, unknown>
-        }) => Promise<{ count: number }>
-        count: (args: { where?: Record<string, unknown> }) => Promise<number>
-    }
+    errorLog: ErrorLogDelegate
 }
 
 /**
