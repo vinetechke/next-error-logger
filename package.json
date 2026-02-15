@@ -1,0 +1,127 @@
+{
+  "name": "@vinetech/next-error-logger",
+  "version": "0.1.0-beta.1",
+  "description": "Simple error logging for Next.js apps with user context, multiple database adapters, and a built-in dashboard.",
+  "author": "VineTech",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vinetech/next-error-logger"
+  },
+  "keywords": [
+    "nextjs",
+    "error-logging",
+    "monitoring",
+    "dashboard",
+    "prisma",
+    "drizzle",
+    "typescript",
+    "react"
+  ],
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./components": {
+      "types": "./dist/components/index.d.ts",
+      "import": "./dist/components/index.js",
+      "require": "./dist/components/index.cjs"
+    },
+    "./adapters/prisma": {
+      "types": "./dist/adapters/prisma.d.ts",
+      "import": "./dist/adapters/prisma.js",
+      "require": "./dist/adapters/prisma.cjs"
+    },
+    "./adapters/drizzle": {
+      "types": "./dist/adapters/drizzle.d.ts",
+      "import": "./dist/adapters/drizzle.js",
+      "require": "./dist/adapters/drizzle.cjs"
+    },
+    "./adapters/sql": {
+      "types": "./dist/adapters/sql.d.ts",
+      "import": "./dist/adapters/sql.js",
+      "require": "./dist/adapters/sql.cjs"
+    },
+    "./auth/next-auth": {
+      "types": "./dist/auth/next-auth.d.ts",
+      "import": "./dist/auth/next-auth.js",
+      "require": "./dist/auth/next-auth.cjs"
+    },
+    "./auth/clerk": {
+      "types": "./dist/auth/clerk.d.ts",
+      "import": "./dist/auth/clerk.js",
+      "require": "./dist/auth/clerk.cjs"
+    },
+    "./api": {
+      "types": "./dist/api/index.d.ts",
+      "import": "./dist/api/index.js",
+      "require": "./dist/api/index.cjs"
+    },
+    "./schemas/prisma": "./schemas/prisma.prisma",
+    "./schemas/drizzle": {
+      "types": "./dist/schemas/drizzle.d.ts",
+      "import": "./dist/schemas/drizzle.js",
+      "require": "./dist/schemas/drizzle.cjs"
+    },
+    "./schemas/sql": "./schemas/schema.sql"
+  },
+  "files": [
+    "dist",
+    "schemas",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "lint": "eslint src/",
+    "lint:fix": "eslint src/ --fix",
+    "format": "prettier --write \"src/**/*.{ts,tsx}\"",
+    "format:check": "prettier --check \"src/**/*.{ts,tsx}\"",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "prepublishOnly": "pnpm build && pnpm test"
+  },
+  "peerDependencies": {
+    "next": ">=14.0.0",
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@prisma/client": {
+      "optional": true
+    },
+    "drizzle-orm": {
+      "optional": true
+    },
+    "next-auth": {
+      "optional": true
+    },
+    "@clerk/nextjs": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^10.3.0",
+    "@testing-library/react": "^14.0.0",
+    "@types/node": "^20.0.0",
+    "@types/react": "^18.0.0",
+    "@typescript-eslint/eslint-plugin": "^7.0.0",
+    "@typescript-eslint/parser": "^7.0.0",
+    "@vitest/coverage-v8": "^1.0.0",
+    "eslint": "^8.0.0",
+    "jsdom": "^24.0.0",
+    "prettier": "^3.0.0",
+    "tsup": "^8.0.0",
+    "typescript": "^5.0.0",
+    "vitest": "^1.0.0"
+  }
+}

@@ -1,0 +1,23 @@
+// @vinetech/next-error-logger - Prisma Schema
+// Copy this model to your schema.prisma file
+
+model ErrorLog {
+  id        String   @id @default(cuid())
+  level     String   // error, warn, info, debug
+  message   String   @db.Text
+  stack     String?  @db.Text
+  userId    String?
+  userEmail String?
+  userName  String?
+  path      String?
+  method    String?
+  userAgent String?
+  ip        String?
+  metadata  Json?
+  createdAt DateTime @default(now())
+
+  @@index([level])
+  @@index([userId])
+  @@index([createdAt])
+  @@map("error_logs")
+}
